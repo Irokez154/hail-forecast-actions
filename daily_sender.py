@@ -1,5 +1,6 @@
 from telegram import Bot
 from datetime import datetime
+import asyncio
 
 BOT_TOKEN = "7020279588:AAER0SU6QqAeqTPQfHfijWNJ5fOeKsVLXrk"
 CHAT_ID = 1688425359
@@ -14,10 +15,10 @@ def generate_forecast():
 (This is an automated message.)
 """
 
-def main():
+async def main():
     bot = Bot(token=BOT_TOKEN)
     forecast_message = generate_forecast()
-    bot.send_message(chat_id=CHAT_ID, text=forecast_message)
+    await bot.send_message(chat_id=CHAT_ID, text=forecast_message)
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
